@@ -21,7 +21,7 @@ export default {
   },
   data: () => {
     return {
-      api_url: process.env.apiUrl
+      api_url: process.env.API_URL
     }
   },
   computed: {

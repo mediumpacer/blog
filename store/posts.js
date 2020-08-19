@@ -10,7 +10,10 @@ export const mutations = {
 
 export const actions = {
   async getPosts ({ commit }) {
-    const thePosts = await this.$axios.$get(process.env.apiUrl + '/articles')
+    const thePosts = await fetch(`${process.env.DEV_URL}/.netlify/functions/get-posts`)
+      .then(res => res.json())
+      .catch(err => console.error(err)) // eslint-disable-line
+
     commit('SET_POSTS', thePosts)
   }
 }

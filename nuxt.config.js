@@ -46,7 +46,8 @@ export default {
     ** Environment Variables
   */
   env: {
-    apiUrl: process.env.BASE_URL || 'http://161.35.42.240'
+    API_URL: process.env.API_URL || 'http://161.35.42.240',
+    DEV_URL: process.env.DEV_URL || 'http://localhost:8888'
   },
   /*
   ** Nuxt.js dev-modules
@@ -75,12 +76,11 @@ export default {
   */
   build: {
   },
+
   generate: {
     routes: () => {
-      console.log(this.default.env.apiUrl)
-      return axios.get(this.default.env.apiUrl + '/articles')
+      return axios.get(process.env.DEV_URL + '/.netlify/functions/get-posts')
         .then((response) => {
-          console.log(response)
           return response.data.map((post) => {
             return {
               route: '/post/' + post.id,

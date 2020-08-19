@@ -15,7 +15,10 @@ export const mutations = {
 export const actions = {
   async getPostBySlug ({ commit }, id) {
     commit('setLoading', true)
-    const response = await this.$axios.$get(process.env.apiUrl + '/articles/' + id)
+    const response = await fetch(`${process.env.DEV_URL}/.netlify/functions/get-post?postId=${id}`)
+      .then(res => res.json())
+      .catch(err => console.error(err)) // eslint-disable-line
+
     commit('setCurrentPost', response)
     commit('setLoading', false)
   }
