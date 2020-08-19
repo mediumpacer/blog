@@ -78,17 +78,17 @@ export default {
   },
 
   generate: {
-    routes: () => {
-      console.log(process.env.DEV_URL + '/.netlify/functions/get-posts')
-      // return axios.get(process.env.DEV_URL + '/.netlify/functions/get-posts')
-      //   .then((response) => {
-      //     return response.data.map((post) => {
-      //       return {
-      //         route: '/post/' + post.id,
-      //         payload: post
-      //       }
-      //     })
-      //   })
-    }
+    // routes: () => {
+    //   console.log(process.env.DEV_URL + '/.netlify/functions/get-posts')
+    //   return axios.get(process.env.DEV_URL + '/.netlify/functions/get-posts')
+    //     .then((response) => {
+    //       return response.data.map((post) => {
+    //         return {
+    //           route: '/post/' + post.id,
+    //           payload: post
+    //         }
+    //       })
+    //     })
+    // }
   }
 }
