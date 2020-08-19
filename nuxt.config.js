@@ -78,17 +78,21 @@ export default {
   },
 
   generate: {
-    routes: () => {
-      console.log(process.env)
-      return axios.get('/.netlify/functions/get-posts')
-        .then((response) => {
-          return response.data.map((post) => {
-            return {
-              route: '/post/' + post.id,
-              payload: post
-            }
-          })
-        })
-    }
+    routes: [
+      '/post/1',
+      '/post/2'
+    ]
+    // () => {
+    //
+    //   return axios.get('/.netlify/functions/get-posts')
+    //     .then((response) => {
+    //       return response.data.map((post) => {
+    //         return {
+    //           route: '/post/' + post.id,
+    //           payload: post
+    //         }
+    //       })
+    //     })
+    // }
   }
 }
