@@ -10,6 +10,8 @@ export const mutations = {
 
 export const actions = {
   async getPosts ({ commit }) {
+    console.log(process.env.URL)
+
     const thePosts = await fetch(`${process.env.NTL_URL}/.netlify/functions/get-posts`)
       .then(res => res.json())
       .catch(err => console.error(err)) // eslint-disable-line
