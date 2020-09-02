@@ -47,7 +47,7 @@ export default {
   */
   env: {
     API_URL: process.env.API_URL || 'http://161.35.42.240',
-    NTL_URL: process.env.DEV_URL || 'http://localhost:8888'
+    NTL_URL: (process.env.SERVER === 'dev') ? 'http://localhost:8888' : 'https://https://stoic-jang-f9f4fb.netlify.app'
   },
   /*
   ** Nuxt.js dev-modules
@@ -79,7 +79,7 @@ export default {
 
   generate: {
     routes: () => {
-      return axios.get(process.env.NTL_URL + '/.netlify/functions/get-posts')
+      return axios.get(this.default.env.NTL_URL + '/.netlify/functions/get-posts')
         .then((response) => {
           return response.data.map((post) => {
             return {
