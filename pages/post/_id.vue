@@ -5,7 +5,7 @@
         {{ currentPost.title }}
       </h1>
       <div class="single-post__content">
-        <img :src="api_url + currentPost.image[0].formats.large.url" :alt="currentPost.title">
+        <img :src="currentPost.image.formats.large.url" :alt="currentPost.title">
       </div>
     </div>
     <p v-else class="single-post__loading">

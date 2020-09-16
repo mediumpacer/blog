@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 export default {
   /*
   ** Nuxt rendering mode
@@ -46,7 +44,7 @@ export default {
     ** Environment Variables
   */
   env: {
-    API_URL: process.env.API_URL || 'http://161.35.42.240',
+    API_URL: process.env.API_URL || 'http://localhost:1337',
     NTL_URL: (process.env.SERVER === 'dev') ? 'http://localhost:8888' : 'https://https://stoic-jang-f9f4fb.netlify.app'
   },
   /*
@@ -75,19 +73,5 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
-  },
-
-  generate: {
-    routes: () => {
-      return axios.get(this.default.env.NTL_URL + '/.netlify/functions/get-posts')
-        .then((response) => {
-          return response.data.map((post) => {
-            return {
-              route: '/post/' + post.id,
-              payload: post
-            }
-          })
-        })
-    }
   }
 }

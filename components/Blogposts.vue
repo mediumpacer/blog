@@ -3,7 +3,7 @@
     <div v-for="post in posts" :key="post.id" :data-id="post.id">
       <nuxt-link :to="`/post/${post.id}`">
         <h2>{{ post.title }}</h2>
-        <img :src="api_url + post.image[0].formats.thumbnail.url" :alt="post.title">
+        <img :src="post.image.formats.thumbnail.url" :alt="post.title">
       </nuxt-link>
     </div>
   </div>
