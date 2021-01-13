@@ -45,7 +45,7 @@ export default {
   */
   env: {
     API_URL: process.env.API_URL || 'http://localhost:1337',
-    NTL_URL: (process.env.SERVER === 'dev') ? 'http://localhost:8888' : 'https://peaceful-clarke-bdfc83.netlify.app'
+    NTL_URL: (process.env.SERVER === 'dev') ? 'http://localhost:8888' : 'https://stoic-jang-f9f4fb.netlify.app'
   },
   /*
   ** Nuxt.js dev-modules
