@@ -1,7 +1,5 @@
 const fetch = require('node-fetch')
 
-console.log(`${process.env.API_URL}/articles`)
-
 exports.handler = async () => {
   const response = await fetch(`${process.env.API_URL}/articles`)
     .then(res => res.json())
